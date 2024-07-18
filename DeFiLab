@@ -1,0 +1,15 @@
+# scripts/data_collection.py
+
+import requests
+import pandas as pd
+
+def fetch_protocol_data(protocol_name):
+    # Fetch data from a DeFi protocol API
+    url = f'https://api.defipulse.com/api/v1/protocol/{protocol_name.lower()}/overview.json'
+    response = requests.get(url)
+    data = response.json()
+    return data
+
+# Example usage:
+# protocol_data = fetch_protocol_data('Compound')
+# print(protocol_data)
